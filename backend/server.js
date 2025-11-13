@@ -5,8 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { Server as SocketIOServer } from 'socket.io';
 import roomRoutes from './routes/roomRoutes.js';
-import { registerSocketHandlers } from './socket/socketHandler.js';
-
+const allowedOrigin = process.env.ALLOWED_ORIGIN || ['http://localhost:4200', 'https://speed-share-psi.vercel.app'];
 dotenv.config();
 
 const app = express();
@@ -62,6 +61,7 @@ server.listen(PORT, () => {
 	console.log(`[Server] listening on port ${PORT}`);
 	console.log(`[CORS] allowed origin: ${allowedOrigin}`);
 });
+
 
 
 
