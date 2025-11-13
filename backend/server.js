@@ -11,7 +11,6 @@ dotenv.config();
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:4200';
 const corsOptions = {
 	origin: allowedOrigin,
 	methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -61,6 +60,7 @@ server.listen(PORT, () => {
 	console.log(`[Server] listening on port ${PORT}`);
 	console.log(`[CORS] allowed origin: ${allowedOrigin}`);
 });
+
 
 
 
