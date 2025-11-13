@@ -55,13 +55,13 @@ mongoose
 	})
 	.catch((err) => {
 		console.error('[MongoDB] connection error:', err.message);
-		process.exit(1);
-	});
+		 	});
 
 const PORT = process.env.PORT || 4000;
 	console.log(`[Server] listening on port ${PORT}`);
 	console.log(`[CORS] allowed origin: ${allowedOrigin}`);
 });
+
 
 
 
