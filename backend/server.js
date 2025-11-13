@@ -45,7 +45,7 @@ app.get('/health', (_req, res) => {
 registerSocketHandlers(io);
 
 // MongoDB connection
-const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://balaji:Balaji@cluster0.xkd36hg.mongodb.net/?appName=Cluster0';
+const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://balaji:Balaji123@cluster0.xkd36hg.mongodb.net/?appName=Cluster0';
 mongoose
 	.connect(mongoUri, {
 		serverSelectionTimeoutMS: 5000,
@@ -62,6 +62,7 @@ server.listen(PORT, () => {
 	console.log(`[Server] listening on port ${PORT}`);
 	console.log(`[CORS] allowed origin: ${allowedOrigin}`);
 });
+
 
 
 
