@@ -6,9 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 
-const API_URL = 'http://localhost:4000/api';
-const SOCKET_URL = 'http://localhost:4000';
-
+const API_URL = 'https://speedshare-1.onrender.com/api';
+const SOCKET_URL = 'https://speedshare-1.onrender.com';
 interface Message {
   id: string;
   text: string;
