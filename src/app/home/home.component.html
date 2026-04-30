@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-gradient-to-b from-white to-apple-gray flex items-center justify-center px-4 py-8">
+  <div class="w-full max-w-md animate-fade-in-up">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center justify-center w-20 h-20 mb-4 bg-gradient-to-br from-apple-blue to-blue-500 rounded-3xl shadow-soft-lg">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <h1 class="text-5xl font-semibold text-gray-900 mb-2">SpeedShare</h1>
+      <p class="text-lg text-gray-500">Share files and messages instantly</p>
+    </div>
+
+    <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-soft-lg p-8 border border-gray-100">
+      <div class="space-y-4">
+        <button
+          (click)="createRoom()"
+          [disabled]="isLoading"
+          class="w-full bg-apple-blue hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+          <span *ngIf="!isLoading">Create Room</span>
+          <span *ngIf="isLoading" class="flex items-center justify-center">
+            <svg class="animate-spin h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Creating...
+          </span>
+        </button>
+
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-200"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-4 bg-white/70 text-gray-500 font-medium">or</span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <input
+            type="text"
+            id="roomCode"
+            name="roomCode"
+            [(ngModel)]="roomCode"
+            (keyup.enter)="joinRoom()"
+            placeholder="Enter room code"
+            maxlength="4"
+            class="w-full px-6 py-4 bg-apple-gray border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all duration-200 text-center text-lg font-medium uppercase tracking-wider placeholder:normal-case placeholder:tracking-normal"
+          />
+          <button
+            (click)="joinRoom()"
+            [disabled]="!roomCode.trim() || isLoading"
+            class="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-4 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+            Join Room
+          </button>
+          <div *ngIf="errorMessage" class="text-red-600 text-sm text-center mt-2">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-sm text-gray-500">Real-time collaboration made simple</p>
+    </div>
+  </div>
+</div>
