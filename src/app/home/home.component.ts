@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
-const API_URL = 'http://localhost:4000/api';
+const API_URL = 'https://speedshare-1.onrender.com/api';
 
 @Component({
   selector: 'app-home',
